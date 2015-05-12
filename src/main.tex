@@ -4,6 +4,7 @@
 \usepackage{microtype}
 \usepackage[usenames,dvipsnames,svgnames]{xcolor}
 \usepackage{menukeys}
+\usepackage{subcaption}
 
 \usepackage{listings}
 \lstset{
@@ -44,7 +45,7 @@ We'll be using the Arduino Uno,
 the most standard Arduino model.
 
 \begin{figure}[h!]
-    \center
+    \centering
     \includegraphics[width=.5\textwidth]{uno.png}
     \caption{Arduino Uno}
 \end{figure}
@@ -60,7 +61,7 @@ This is the application we'll use to write code
 and upload it to the Arduino board.
 
 \begin{figure}[h!]
-    \center
+    \centering
     \includegraphics[width=.5\textwidth]{ide.jpg}
     \caption{Arduino IDE}
     \label{fig:ide}
@@ -86,6 +87,59 @@ You should see the LED (light emitting diode) on your board blinking.
 \section{Building Your Robot}
 \label{sec:wiring_your_robot}
 
+Before we program our robot, we have to build it.
+We'll use two servo motors to move.
+A servo is a precisely controlled motor (see Figure~\ref{fig:servo}).
+A servo has three wires to connect as shown in Figure~\ref{fig:connector}.
+The black and red wires are for power.
+Black is connected to \emph{ground} which means zero volts.
+Red is connected to 5 volts.
+The white wire is for \emph{signal}.
+This is what we use to tell the servo how to turn.
+
+Servos use \emph{pulse width modulation} (PWM).
+PWM is a special kind of signal from the Arduino.
+The Arduino can only make this signals on pins
+labeled with a `\texttt{\textasciitilde}'.
+We'll use pin 10 for the right servo
+and pin 11 for the left servo.
+
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}[b]{.45\textwidth}
+        \includegraphics[width=\textwidth]{servo.jpg}
+        \caption{servo motor}
+        \label{fig:servo}
+    \end{subfigure}
+    ~
+    \begin{subfigure}[b]{.45\textwidth}
+        \includegraphics[width=\textwidth]{connector.png}
+        \caption{servo connector}
+        \label{fig:connector}
+    \end{subfigure}
+    \caption{}
+\end{figure}
+
+Figure~\ref{fig:circuit} shows all the connections we need to make.
+Use jumper wires to make these connections:
+\begin{enumerate}
+    \item Right servo ground (black) to Arduino ground (GND)
+    \item Left servo ground (black) to Arduino ground (GND)
+    \item Right servo signal (white) to Arduino pin 10
+    \item Left servo signal (white) to Arduino pin 11
+    \item Right servo high (red) to Arduino 4 volt (5V) to left servo high (red)
+\end{enumerate}
+Since there is only one 5V pin on the Arduino,
+we'll use a Y-jumper cable with and extra connection point.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\textwidth]{wiring.png}
+    \caption{robot ciruit connections}
+    \label{fig:circuit}
+\end{figure}
+
+Once you have made all your connections, you're ready to start programming.
 
 
 \clearpage
