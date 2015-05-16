@@ -17,11 +17,6 @@ Servo servo_right; // this makes a servo variable called servo_right.
 
 Servo servo_left;  // this makes another one called servo_left.
 
-// For the speeds:
-int spd_left;  // an integer (whole number) to hold the speed of the left servo
-
-int spd_right; // the right servo speed
-
 
 // Next we tell the program what to do.
 // Every Arduino program has a setup function and a loop function.
