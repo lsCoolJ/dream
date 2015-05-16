@@ -25,14 +25,14 @@ int spd_right; // the right servo speed
 
 // Next we tell the program what to do.
 // Every Arduino program has a setup function and a loop function.
-// The setup function runs once when the program starts.
-// The loop function runs over and over forever. 
+// The setup function runs once (first) when the program starts.            
+// Then the loop function runs over and over forever. 
 
 // This will run only once at the program's beginning.
 void setup() 
 { 
     servo_right.attach(10); // This tells the program which pins
-    servo_left.attach(11);  // the servos are plugged into.
+    servo_left.attach(11);  //       the servos are plugged into.
 } 
 
 // This function will repeat forever.
@@ -48,12 +48,12 @@ void loop()
     servo_left.write(0);    // The left motor is pointed the opposite way,
                             // so we'll spin it the opposite direction.
     
-    delay(500); // This tells the program to wait 500 milliseconds (or 1/2 s).
+    delay(2000); // This tells the program to wait 2000 milliseconds (or 2 seconds).
 
     servo_right.write(0);   // Let's switch direction.
     servo_left.write(180);
 
-    delay(500); // Wait another 1/2 second.
+    delay(2000); // Wait another 2 seconds.
 
     // The program will now jump back to the beginning of the loop function
     // and repeat it until we turn the Arduino off.
